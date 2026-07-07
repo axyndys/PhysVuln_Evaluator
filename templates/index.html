@@ -40,12 +40,22 @@
 
         body { 
             font-family: 'Open Sans', sans-serif; 
-            max-width: 800px; 
+            max-width: 1100px; 
+            width: 100%;
+            box-sizing: border-box;
             margin: 20px auto; 
-            padding: 0 20px; 
+            padding: 0 40px; 
             background-color: var(--bg-body); 
             color: var(--text-main); 
             transition: background-color 0.3s, color 0.3s; 
+        }
+
+        /* Na užších obrazovkách (tablety/mobily) zmenšení okrajů */
+        @media (max-width: 768px) {
+            body {
+                margin: 10px auto;
+                padding: 0 16px;
+            }
         }
 
         .sticky-header-container {
@@ -116,7 +126,7 @@
             margin-bottom: 10px;                
         }
 
-        /* Opravený kontejner pro tlačítka (Flexbox zarovnání) */
+        /* Kontejner pro tlačítka (Flexbox zarovnání) */
         .buttons { 
             display: flex;                      
             flex-wrap: wrap;                    
@@ -127,7 +137,7 @@
         /* Schování původních radio buttonů */
         .buttons input[type="radio"] { display: none; }
 
-        /* Vzhled neaktivního tlačítka (Opravený box pro proti překrývání) */
+        /* Vzhled neaktivního tlačítka */
         .buttons label {
             display: flex;                      /* Zamezí přetékání a udělá z labelu samostatný box */
             align-items: center;                /* Vertikálně vycentruje text */
@@ -149,7 +159,7 @@
             color: #ffffff; 
         }
 
-        /* Vzhled AKTIVNÍHO tlačítka (po kliknutí) */
+        /* Vzhled aktivního tlačítka (po kliknutí) */
         .buttons input[type="radio"]:checked + label {
             background-color: #ff7300; 
             color: white; 
@@ -214,7 +224,7 @@
             height: 24px;
             fill: var(--text-main);
         }
-        /* Výchozí stav */
+        /* Výchozí stav (tmavý režim) */
         .sun-icon { display: none; }        /* Slunce schováno */
         .moon-icon { display: block; }      /* Měsíc aktivní */
 
@@ -222,7 +232,7 @@
         body.dark-mode .sun-icon { display: block; }  /* Slunce aktivní */
         body.dark-mode .moon-icon { display: none; }  /* Měsíc schováno */
 
-        /* Přepínač jazyka (umístěn symetricky vlevo, přepínač motivu je vpravo) */
+        /* Přepínač jazyka */
         .lang-switch {
             position: absolute;
             top: 15px;
@@ -413,7 +423,7 @@
             .catch(error => console.error('Chyba spojení:', error));
         });
 
-        // Kopírování výsledků do schránky
+        // Kopírování výsledku do schránky
         const copyBtn = document.getElementById('copy-btn');
         
         copyBtn.addEventListener('click', function(e) {
@@ -443,10 +453,10 @@
             });
         });
 
-        // Přepínání světlého/temného režimu
+        // Přepínání světlého/tmavého režimu
         const themeToggleBtn = document.getElementById('theme-toggle');
         
-        // Výchozí je tmavý režim z HTML. Pokud si ale uživatel minule zvolil světlý ('light'), tmavý režim se vypne
+        // Výchozí je tmavý režim z HTML. Pokud si ale uživatel minule zvolil světlý, tmavý režim se vypne
         const currentTheme = localStorage.getItem('theme');
         if (currentTheme === 'light') {
             document.body.classList.remove('dark-mode');

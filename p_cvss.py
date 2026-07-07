@@ -1,8 +1,8 @@
 # Definice metrik P-CVSSv4 a sestavení vektoru pro knihovnu cvss
 # Struktura metrik: kod_metriky -> label_key, step_key, options
 # Hodnoty metrik: CVSS_kod -> přemapování hodnot
-#
-# POZNÁMKA K LOKALIZACI:
+
+# POZNÁMKA:
 # Slovník neobsahuje žádné hotové české texty určené pro uživatele.
 # Místo toho obsahuje univerzální anglické klíče (label_key, step_key, option klíče), které se ve frontendu/šabloně přeloží pomocí slovníku
 # překladů (např. cs.json / en.json). Díky tomu tento soubor vrací jen "čistá data" a lokalizace se řeší mimo něj.

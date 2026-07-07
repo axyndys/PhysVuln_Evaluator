@@ -31,7 +31,7 @@ DEFAULT_LANGUAGE = "cs"
 
 
 def nacti_preklady():
-    """Načte oba jazykové slovníky ze souborů do paměti (při startu appky)."""
+    """Načte oba jazykové slovníky ze souborů do paměti (při startu apky)"""
     preklady = {}
     for lang in SUPPORTED_LANGUAGES:
         cesta = os.path.join(LANG_DIR, f"{lang}.json")
